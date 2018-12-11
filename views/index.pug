@@ -1,7 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  button cos
-  button cosd2
+ 
+        h1 Log In
+        form(method='POST' action='/login')
+          div
+            label(for='email') Email
+            input.form-control(type='text' id='email' placeholder='email' name='email')
+          div
+            label(for='password') Password
+            input(type='password' id='password' placeholder='password' name='password')
+          button(type='submit') Log in 
+          p
+            a(href="/signin" title ='registration') Registration
+ 
