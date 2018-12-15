@@ -1,7 +1,9 @@
 extends layout
 
+
 block content
- 
+        li 
+          a(href="/signin") Registration
         h1 Log In
         form(method='POST' action='/login')
           div
@@ -11,6 +13,8 @@ block content
             label(for='password') Password
             input(type='password' id='password' placeholder='password' name='password')
           button(type='submit') Log in 
-          p
-            a(href="/signin" title ='registration') Registration
- 
+
+block newscontent  
+    
+
+
