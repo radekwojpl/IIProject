@@ -14,7 +14,11 @@ block content
             input(type='password' id='password' placeholder='password' name='password')
           button(type='submit') Log in 
 
-block newscontent  
+block newscontent
+    each elem,i in news.articles
+        ul
+            li !{elem.title}
+            p !{elem.content}
     
 
 

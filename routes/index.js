@@ -6,12 +6,12 @@ const PagesController = require('../Controller/PagesController');
 
 
 /* GET home page. */
-router.get('/', 
-PagesController.loadnews,
-PagesController.index );
+router.get('/',
+PagesController.index);
 
-router.get('/signin', 
-PagesController.loadnews,
+router.get('/signin',
 PagesController.signin);
+
+router.get('/news',PagesController.loadnews);
 
 module.exports = router;
