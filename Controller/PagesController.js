@@ -1,11 +1,11 @@
 
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('93413add24ba47f6a11bfca4817bbc11');
+const newsapi = new NewsAPI('fa3b1266a35f4f86b18c65163f8cb8d2');
 const request = require('request');
 
 
 exports.index = (req, res) => {
-    request.get("https://newsapi.org/v2/everything?q=bitcoin&from=2018-11-16&sortBy=publishedAt&apiKey=93413add24ba47f6a11bfca4817bbc11",function(error, response, body){
+    request.get("https://newsapi.org/v2/everything?q=bitcoin&from=2018-11-18&sortBy=publishedAt&apiKey=fa3b1266a35f4f86b18c65163f8cb8d2",function(error, response, body){
         var news = JSON.parse(body);
         console.log(news);
     res.render('index',{news:news});
@@ -16,7 +16,7 @@ exports.signin = (req, res) => {
 };
 
 exports.loadnews = (req, res) => {
-    request.get("https://newsapi.org/v2/everything?q=bitcoin&from=2018-11-16&sortBy=publishedAt&apiKey=93413add24ba47f6a11bfca4817bbc11",function(error, response, body){
+    request.get("https://newsapi.org/v2/everything?q=bitcoin&from=2018-11-18&sortBy=publishedAt&apiKey=fa3b1266a35f4f86b18c65163f8cb8d2",function(error, response, body){
         var news = JSON.parse(body);
         console.log(news);
         res.render('news',{news:news})
