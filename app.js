@@ -8,11 +8,27 @@ var logger = require('morgan');
 var session = require('express-session');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 
+
+const mongoose = require('mongoose');
 
 var app = express();
+
+var mongodbUri = 'mongodb+srv://@cluster0-poetu.mongodb.net/usersdb';
+mongoose.connect(mongodbUri, {
+    useNewUrlParser: true,
+    auth: {
+        user: 'test',
+        password: 'test'
+    }
+});
+const mongooseConnection = mongoose.connection;
+mongooseConnection.on('error', console.error.bind(console, 'connection error:'));
+
+mongooseConnection.once('open', () => {
+    console.log('connected to a database')
+});
 
 // view engine setup
 app.set('view engine', 'pug');
@@ -28,7 +44,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use(flash());
 
 app.use(session ({
