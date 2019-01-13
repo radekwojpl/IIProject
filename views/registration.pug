@@ -1,18 +1,17 @@
 extends layout
 
 block content
-        h1 Sign Up
-        form(method='POST' action='/registerUser')
-          div
-            label(for='name') Name:
-            input(type='text', placeholder='first and last' name='name')
-          div
-            label(for='email') Email:
-            input(type='email', placeholder='name@email.com' name='email')
-          div
-            label(for='pw') Password:
-            input(type='password' name='password')
-          div
-            label(for='pw2') Confirm Password:
-            input(type='password' name='confirmPassword')
-          button(type='submit') Sign up
+      div.col
+                form.cols12(action="/registerUser" method="POST")
+                    h4
+                        | Registration
+                    div.col
+                        div.input-field.col.l6
+                            input.validate(placeholder="E-mail" type="text" name="email")
+                        div.input-field.col.l6
+                            input.validate(placeholder="Username" type="text" name="username")
+                        div.input-field.col.l6
+                            input.validate(placeholder="Password" type="password" name="password")
+                            div.input-field.col.l6
+                                input.validate(placeholder="Confirm Password" type="password" name="passwordConf")
+                        button.btn Register

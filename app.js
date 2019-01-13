@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var logger = require('morgan');
 var session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 var indexRouter = require('./routes/index');
 
@@ -15,7 +16,7 @@ const mongoose = require('mongoose');
 
 var app = express();
 
-var mongodbUri = 'mongodb+srv://@cluster0-poetu.mongodb.net/usersdb';
+var mongodbUri = 'mongodb+srv://@cluster0-yxjsz.mongodb.net/usersdb';
 mongoose.connect(mongodbUri, {
     useNewUrlParser: true,
     auth: {
@@ -23,6 +24,8 @@ mongoose.connect(mongodbUri, {
         password: 'test'
     }
 });
+
+
 const mongooseConnection = mongoose.connection;
 mongooseConnection.on('error', console.error.bind(console, 'connection error:'));
 
@@ -50,7 +53,9 @@ app.use(session ({
   secret: 'social media',
   resave: false,
   saveUninitialized: true,
-  cookie: {}
+  store: new MongoStore({
+        mongooseConnection: mongooseConnection
+    })
 }))
 
 

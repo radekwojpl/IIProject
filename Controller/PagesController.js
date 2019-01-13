@@ -23,4 +23,8 @@ exports.loadnews = (req, res) => {
 
     })};
 
+exports.contact = (req, res) => {
+    res.render('contact');
+};
+
 

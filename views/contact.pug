@@ -1,0 +1,29 @@
+html
+    head
+    body
+  
+    div.container
+        div.col
+            .col.s12.m6
+                form.col.s12.input-data(action="/contactForm" method='POST')
+                    h4
+                        | Contact form
+                    .row
+                        .input-field.col.s6
+                            i.material-icons.circle.prefix account_circle
+                            input#name.validate(name='name1', type='text')
+                            label(for='name') Name
+                        .input-field.col.s6
+                            i.material-icons.prefix mail
+                            input#email.validate(name='email1', type='email')
+                            label(for='email') e-mail
+                        .input-field.col.s12
+                            i.material-icons.prefix message
+                            textarea#message.materialize-textarea(name='message1', data-length='200')
+                            label(for='message') Write message
+                    button.btn.button-hover.background-button-color.right.margin-top-btn(type='submit', name='action')
+                        | Send
+                        i.material-icons.right send
+
+
+script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
